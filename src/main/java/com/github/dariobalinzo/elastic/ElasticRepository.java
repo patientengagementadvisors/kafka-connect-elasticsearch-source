@@ -18,14 +18,14 @@ package com.github.dariobalinzo.elastic;
 
 import com.github.dariobalinzo.elastic.response.Cursor;
 import com.github.dariobalinzo.elastic.response.PageResult;
-import org.elasticsearch.action.search.SearchRequest;
-import org.elasticsearch.action.search.SearchResponse;
-import org.elasticsearch.client.Request;
-import org.elasticsearch.client.RequestOptions;
-import org.elasticsearch.client.Response;
-import org.elasticsearch.index.query.QueryBuilder;
-import org.elasticsearch.search.builder.SearchSourceBuilder;
-import org.elasticsearch.search.sort.SortOrder;
+import org.opensearch.action.search.SearchRequest;
+import org.opensearch.action.search.SearchResponse;
+import org.opensearch.client.Request;
+import org.opensearch.client.RequestOptions;
+import org.opensearch.client.Response;
+import org.opensearch.index.query.QueryBuilder;
+import org.opensearch.search.builder.SearchSourceBuilder;
+import org.opensearch.search.sort.SortOrder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,7 +36,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.github.dariobalinzo.elastic.ElasticJsonNaming.removeKeywordSuffix;
-import static org.elasticsearch.index.query.QueryBuilders.*;
+import static org.opensearch.index.query.QueryBuilders.*;
 
 public final class ElasticRepository {
     private final static Logger logger = LoggerFactory.getLogger(ElasticRepository.class);

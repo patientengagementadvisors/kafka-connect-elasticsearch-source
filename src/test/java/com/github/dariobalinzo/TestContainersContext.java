@@ -21,16 +21,16 @@ import com.github.dariobalinzo.elastic.ElasticConnectionBuilder;
 import com.github.dariobalinzo.elastic.ElasticRepository;
 import com.github.dariobalinzo.task.ElasticSourceTaskConfig;
 import org.apache.http.HttpHost;
-import org.elasticsearch.action.DocWriteResponse;
-import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
-import org.elasticsearch.action.index.IndexRequest;
-import org.elasticsearch.action.index.IndexResponse;
-import org.elasticsearch.client.RequestOptions;
-import org.elasticsearch.xcontent.XContentBuilder;
-import org.elasticsearch.xcontent.XContentFactory;
+import org.opensearch.action.DocWriteResponse;
+import org.opensearch.action.admin.indices.delete.DeleteIndexRequest;
+import org.opensearch.action.index.IndexRequest;
+import org.opensearch.action.index.IndexResponse;
+import org.opensearch.client.RequestOptions;
+import org.opensearch.common.xcontent.XContentFactory;
+import org.opensearch.core.xcontent.XContentBuilder;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.testcontainers.elasticsearch.ElasticsearchContainer;
+import org.opensearch.testcontainers.OpensearchContainer;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -49,9 +49,9 @@ public class TestContainersContext {
     protected static final String NESTED_CURSOR_FIELD = NESTED_OBJECT + "." + CURSOR_FIELD;
     protected static final String SECONDARY_CURSOR_FIELD = "fullName.keyword";
 
-    protected static final String ELASTICSEARCH_IMAGE = "docker.elastic.co/elasticsearch/elasticsearch:7.11.1";
+    protected static final String ELASTICSEARCH_IMAGE = "opensearchproject/opensearch:2.11.0";
 
-    protected static ElasticsearchContainer container;
+    protected static OpensearchContainer container;
     protected static ElasticConnection connection;
     protected static ElasticRepository repository;
     protected static ElasticRepository nestedRepository;
@@ -60,7 +60,7 @@ public class TestContainersContext {
     @BeforeClass
     public static void setupElastic() {
         // Create the elasticsearch container.
-        container = new ElasticsearchContainer(ELASTICSEARCH_IMAGE);
+        container = new OpensearchContainer(ELASTICSEARCH_IMAGE);
         container.addEnv("ES_JAVA_OPTS", "-Xms512m -Xmx512m");
         container.start();
 
@@ -109,11 +109,13 @@ public class TestContainersContext {
                 .field("age", 10)
                 .field("non-avro-field", "non-avro-field")
                 .field("avroField", "avro-field")
-                .object(NESTED_OBJECT, b -> b.field(CURSOR_FIELD, tsStart))
+                .startObject()
+                .field(CURSOR_FIELD, tsStart)
+                .endObject()
                 .endObject();
 
         IndexRequest indexRequest = new IndexRequest(index);
-        indexRequest.type("_doc");
+        //indexRequest.type("_doc");
         indexRequest.source(builder);
 
         IndexResponse response = connection.getClient().index(indexRequest, RequestOptions.DEFAULT);

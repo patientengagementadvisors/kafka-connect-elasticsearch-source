@@ -1,14 +1,14 @@
-# Kafka-connect-elasticsearch-source
+# Kafka-connect-opensearch-source
 
 [![YourActionName Actions Status](https://github.com/DarioBalinzo/kafka-connect-elasticsearch-source/workflows/Java%20CI%20with%20Maven/badge.svg)](https://github.com/DarioBalinzo/kafka-connect-elasticsearch-source/actions)
 
-Kafka Connect Elasticsearch Source: fetch data from elastic-search and sends it to kafka. The connector fetches only new
+Kafka Connect Opensearch Source: fetch data from elastic-search and sends it to kafka. The connector fetches only new
 data using a strictly incremental / temporal field (like a timestamp or an incrementing id). It supports dynamic schema
 and nested objects/ arrays.
 
 ## Requirements:
 
-- Elasticsearch 6.x and 7.x
+- Opensearch 2.x and 1.x
 - Java >= 8
 - Maven
 
