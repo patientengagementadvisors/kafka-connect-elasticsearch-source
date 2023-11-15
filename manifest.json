@@ -2,8 +2,8 @@
   "component_types": [
     "source"
   ],
-  "description": "This is a connector for getting data out of Elasticsearch into Apache Kafka.",
-  "documentation_url": "https://github.com/DarioBalinzo/kafka-connect-elasticsearch-source",
+  "description": "This is a connector for getting data out of OpenSearch into Apache Kafka.",
+  "documentation_url": "https://github.com/patientengagementadvisors/kafka-connect-opensearch-source",
   "features": {
     "confluent_control_center_integration": true,
     "delivery_guarantee": [
@@ -22,7 +22,7 @@
       "logo": "assets/apache_logo.gif"
     }
   ],
-  "name": "kafka-connect-elasticsearch-source",
+  "name": "kafka-connect-opensearch-source",
   "owner": {
     "logo": "assets/dariobalinzo.png",
     "name": "Dario Balinzo",
@@ -31,7 +31,7 @@
     "username": "dariobalinzo"
   },
   "requirements": [
-    "Elasticsearch >= 6.x"
+    "OpenSearch >= 1.x"
   ],
   "support": {
     "logo": "assets/dariobalinzo.png",
@@ -44,6 +44,6 @@
     "elasticsearch",
     "elastic"
   ],
-  "title": "Kafka Connect Elasticsearch Source",
+  "title": "Kafka Connect OpenSeaarch Source",
   "version": "1.5.0"
 }

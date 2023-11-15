@@ -109,9 +109,7 @@ public class TestContainersContext {
                 .field("age", 10)
                 .field("non-avro-field", "non-avro-field")
                 .field("avroField", "avro-field")
-                .startObject()
-                .field(CURSOR_FIELD, tsStart)
-                .endObject()
+
                 .endObject();
 
         IndexRequest indexRequest = new IndexRequest(index);

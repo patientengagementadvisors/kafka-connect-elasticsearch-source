@@ -25,9 +25,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <groupId>com.github.dariobalinzo</groupId>
-    <artifactId>elastic-source-connect</artifactId>
-    <version>1.5.5</version>
+    <groupId>com.github.patientengagementadvisors</groupId>
+    <artifactId>opensearch-source-connect</artifactId>
+    <version>1.0.0</version>
 
     <licenses>
         <license>
