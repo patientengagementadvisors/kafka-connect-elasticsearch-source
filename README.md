@@ -1,5 +1,9 @@
 # Kafka-connect-opensearch-source
 
+# WORK IN PROGRESS 
+Fork of https://github.com/DarioBalinzo/kafka-connect-elasticsearch-source 
+most tests are passing but not ready for production
+
 [![YourActionName Actions Status](https://github.com/DarioBalinzo/kafka-connect-elasticsearch-source/workflows/Java%20CI%20with%20Maven/badge.svg)](https://github.com/DarioBalinzo/kafka-connect-elasticsearch-source/actions)
 
 Kafka Connect Opensearch Source: fetch data from elastic-search and sends it to kafka. The connector fetches only new
